@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TN SSLC Result 2025</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .marks-table {
+      width: 60%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .marks-table th, .marks-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    .marks-table th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .marks-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .marks-table tr:hover {
+      background-color: #f1f1f1;
+    }
+    .total-row {
+      font-weight: bold;
+      background-color: #e8f5e9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top bar with logo -->
+  <div class="top-bar">
+    <img src="{{ url_for('static', filename='melted.png') }}" alt="Logo">
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h3>Government of Tamil Nadu<br>Directorate of Government Examinations</h3>
+    <h2>TN SSLC Result 2025</h2>
+  </div>
+
+  <!-- Marks Table -->
+  <div class="form-container">
+    <h2 style="text-align:center;">Mark Details for {{ student['reg_no'] }}</h2>
+    <table class="marks-table">
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+      </tr>
+      <tr>
+        <td>Tamil</td>
+        <td>{{ student['tamil'] }}</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>{{ student['english'] }}</td>
+      </tr>
+      <tr>
+        <td>Maths</td>
+        <td>{{ student['maths'] }}</td>
+      </tr>
+      <tr>
+        <td>Science</td>
+        <td>{{ student['science'] }}</td>
+      </tr>
+      <tr>
+        <td>Social Science</td>
+        <td>{{ student['social'] }}</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total Marks</td>
+        <td>
+          {{ student['tamil'] + student['english'] + student['maths'] + student['science'] + student['social'] }}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Notice -->
+  <div class="notice">
+    For any query, please email: <a href="mailto:suryaarumugam2021@gmail.com">suryaarumugam2021@gmail.com</a><br>
+    This site is best viewed in 1024x768 resolution
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Website Designed and Hosted by National Informatics Centre<br>
+    Data Provided by Directorate of Government Examinations, Chennai
+  </div>
+</body>
+</html>
