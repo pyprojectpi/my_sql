@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TN SSLC Result 2025</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="top-bar">
+    <img src="{{ url_for('static', filename='melted.png') }}" alt="Logo">
+  </div>
+
+  <div class="header">
+    <h3>Department of Education<br>Directorate of Examinations</h3>
+    <h2>Examinations Result</h2>
+  </div>
+
+  <div class="form-container">
+    <form action="/result" method="POST">
+      <label for="regno">Registration No:</label><br>
+      <input type="text" id="regno" name="regno" required><br><br>
+
+      <label for="dob">Date of Birth (dd/mm/yyyy):</label><br>
+      <input type="text" id="dob" name="dob" required><br><br>
+
+      <div class="btns">
+        <input type="submit" value="Get Marks">
+        <input type="reset" value="Clear">
+      </div>
+    </form>
+  </div>
+
+  <div class="notice">
+    For any query, please email: 
+    <a href="mailto:suryaarumugam2021@gmail.com">suryaarumugam2021@gmail.com</a><br>
+    This site is best viewed in 1024x768 resolution
+  </div>
+
+  <div class="footer">
+    Website Designed and Hosted by PyProjectPi<br>
+    Data Provided by Directorate of Examinations, Chennai
+  </div>
+</body>
+</html>
