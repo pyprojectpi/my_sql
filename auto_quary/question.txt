@@ -1,0 +1,32 @@
+📊 Salary-based questions
+"Show the top 3 highest-paid employees."
+
+"Find the average salary of employees in each department."
+
+"List employees whose salary is above the company average."
+
+"Which department has the highest total salary budget?"
+
+"Show employees who earn between 50,000 and 80,000."
+
+📁 Department-based questions
+"List all employees in the IT department sorted by salary in descending order."
+
+"Find the number of employees in each department."
+
+"Which department has the fewest employees?"
+
+"List unique departments in the company."
+
+"Show employees from Sales and Marketing only."
+
+🧠 Trickier / analytical questions
+"Find the employee with the second highest salary."
+
+"Show departments where all employees earn more than 45,000."
+
+"Find employees whose names start with the letter 'H'."
+
+"List employees whose salary is the same as someone in another department."
+
+"Which department has the largest salary gap between its highest and lowest paid employees?"
