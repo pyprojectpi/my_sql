@@ -1,0 +1,139 @@
+SQL Commands Cheatsheet with Detailed Descriptions
+
+1. DDL (Data Definition Language)
+---------------------------------
+DDL commands are used to define, modify, and remove database objects such as tables, indexes, and schemas. 
+These commands deal with the structure of the database, not the actual data.
+
+CREATE
+------
+Used to create a new database object such as a table, view, or index.
+Example:
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Course VARCHAR(50)
+);
+
+ALTER
+-----
+Used to modify the structure of an existing database object.
+Example: Add a new column to Students table
+ALTER TABLE Students ADD Email VARCHAR(100);
+
+DROP
+----
+Used to permanently delete a database object such as a table.
+Example:
+DROP TABLE Students;
+
+TRUNCATE
+--------
+Used to remove all rows from a table quickly, but keeps the table structure for future use.
+Example:
+TRUNCATE TABLE Students;
+
+RENAME
+------
+Used to rename an existing database object.
+Example:
+ALTER TABLE Students RENAME TO Learners;
+
+
+2. DML (Data Manipulation Language)
+-----------------------------------
+DML commands are used to manipulate data stored in the database. 
+They allow users to insert, update, delete, and retrieve data.
+
+SELECT
+------
+Retrieves data from one or more tables.
+Example:
+SELECT * FROM Students;
+
+INSERT
+------
+Adds new rows of data into a table.
+Example:
+INSERT INTO Students (StudentID, Name, Age, Course)
+VALUES (1, 'Surya', 21, 'ECE');
+
+UPDATE
+------
+Modifies existing records in a table.
+Example:
+UPDATE Students
+SET Age = 22
+WHERE StudentID = 1;
+
+DELETE
+------
+Removes specific rows from a table based on a condition.
+Example:
+DELETE FROM Students WHERE StudentID = 1;
+
+MERGE
+-----
+Used to insert new rows or update existing ones depending on whether a condition is met.
+Example:
+MERGE INTO Students S
+USING (SELECT 1 AS StudentID, 'Arun' AS Name, 23 AS Age, 'CSE' AS Course) AS Temp
+ON (S.StudentID = Temp.StudentID)
+WHEN MATCHED THEN
+    UPDATE SET S.Name = Temp.Name, S.Age = Temp.Age
+WHEN NOT MATCHED THEN
+    INSERT (StudentID, Name, Age, Course)
+    VALUES (Temp.StudentID, Temp.Name, Temp.Age, Temp.Course);
+
+LOCK TABLE
+----------
+Locks a table to prevent other users from accessing it while a transaction is ongoing.
+Example:
+LOCK TABLE Students IN EXCLUSIVE MODE;
+
+
+3. DCL (Data Control Language)
+------------------------------
+DCL commands are used to control access to data in the database. 
+They define privileges and permissions for users.
+
+GRANT
+-----
+Gives a user or role specific privileges such as SELECT, INSERT, UPDATE, or DELETE.
+Example:
+GRANT SELECT, INSERT ON Students TO user1;
+
+REVOKE
+------
+Removes previously granted privileges from a user or role.
+Example:
+REVOKE INSERT ON Students FROM user1;
+
+
+4. TCL (Transaction Control Language)
+-------------------------------------
+TCL commands are used to manage transactions in a database. 
+Transactions ensure that a group of SQL statements are executed as a single unit of work.
+
+COMMIT
+------
+Saves all changes made by a transaction permanently in the database.
+Example:
+INSERT INTO Students VALUES (2, 'Kumar', 20, 'IT');
+COMMIT;
+
+ROLLBACK
+--------
+Undoes all changes made by the current transaction, restoring the database to its previous state.
+Example:
+DELETE FROM Students WHERE StudentID = 2;
+ROLLBACK;  -- Undo delete
+
+SAVEPOINT
+---------
+Creates a point within a transaction to which you can later roll back, without affecting the entire transaction.
+Example:
+SAVEPOINT before_update;
+UPDATE Students SET Age = 25 WHERE StudentID = 1;
+ROLLBACK TO before_update;
